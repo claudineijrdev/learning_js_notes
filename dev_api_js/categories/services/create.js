@@ -1,7 +1,8 @@
-import Category from './../schema/Category'
+import Category from '../schemas/Category'
 export default (req, res) =>{
      let category = new Category(req.body)
-
+     console.log('Category: ' + category)
+     //res.json(category)
      category
           .save()
           .then((created) =>{
@@ -14,5 +15,6 @@ export default (req, res) =>{
           })
           .catch(err => res.status(500)
                            .json({ status: false, data: {} })
+                           
           )
 }
